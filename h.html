@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+.Bcolor{height: 50px;width: 50px;background-color: blue;margin-bottom: 5px;color: aliceblue;display: flex;justify-content: center;align-items: center;}
+
+    </style>
+</head>
+<body>
+
+<section class="Bcolor s1"><h1>1</h1></section>
+<section class="Bcolor s2"><h1>2</h1></section>
+<section class="Bcolor s3"><h1>3</h1></section>
+<section class="Bcolor s4"><h1>4</h1></section>
+
+    <script>
+console.log('hii')
+
+for(let i=1; i<5;i++){
+document.querySelector(`.s${i}`).addEventListener('click',function (e) {
+    console.log('u')
+    changeColor(e)
+   
+})
+}
+function changeColor(e) {
+    console.log(e.target)
+ const box = e.target.closest('.Bcolor');
+
+ box.style.backgroundColor = 'red';
+ box.style.width = '55px';
+ box.style.height = '55px';
+
+ for (let i = 1; i < 5; i++) {
+   if (document.querySelector(`.s${i}`) !== e.target) {
+     document.querySelector(`.s${i}`).style.backgroundColor = 'blue';
+     document.querySelector(`.s${i}`).style.width = '50px';
+     document.querySelector(`.s${i}`).style.height = '50px';
+   }
+ }
+}
+    </script>
+</body>
+</html>
